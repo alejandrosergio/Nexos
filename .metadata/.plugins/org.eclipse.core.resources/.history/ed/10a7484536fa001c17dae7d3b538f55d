@@ -1,0 +1,28 @@
+package com.nexos.tecnica.models;
+
+
+import java.util.Date;
+
+import javax.persistence.*;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "Charges")
+public class Charges {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long ID;
+	
+    private String Charge;
+    
+    private Date CreatedBy;
+    private Date CreationOn;
+    private Date ModifiedBy;
+    private Date ModifiedOn;
+    
+    
+    
+}

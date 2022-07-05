@@ -1,0 +1,98 @@
+package com.nexos.tecnica.models;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "Charges")
+public class Charges implements Serializable {
+	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+    private Long ID;
+	
+	@Column(name = "Charge", unique = true, nullable = false)
+    private String Charge;
+    
+    @Column(name = "Created_by", nullable = false)
+    private String CreatedBy;
+    
+    @Column(name = "Creation_on", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date CreationOn;
+    
+    @Column(name = "Modified_by", nullable = true)
+    private String ModifiedBy;
+    
+    @Column(name = "Modified_on", nullable = true)
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date ModifiedOn;
+    
+    
+	@PrePersist
+	public void prePersist() {
+		this.CreationOn = new Date();
+	}
+	
+    
+	public Long getID() {
+		return ID;
+	}
+	public void setID(Long iD) {
+		ID = iD;
+	}
+	
+	public String getCharge() {
+		return Charge;
+	}
+	public void setCharge(String charge) {
+		Charge = charge;
+	}
+	
+	public String getCreatedBy() {
+		return CreatedBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		CreatedBy = createdBy;
+	}
+	
+	public Date getCreationOn() {
+		return CreationOn;
+	}
+	public void setCreationOn(Date creationOn) {
+		CreationOn = creationOn;
+	}
+	
+	public String getModifiedBy() {
+		return ModifiedBy;
+	}
+	public void setModifiedBy(String modifiedBy) {
+		ModifiedBy = modifiedBy;
+	}
+	
+	public Date getModifiedOn() {
+		return ModifiedOn;
+	}
+	public void setModifiedOn(Date modifiedOn) {
+		ModifiedOn = modifiedOn;
+	}
+
+	private static final long serialVersionUID = -549712409229904589L;
+	
+	
+}

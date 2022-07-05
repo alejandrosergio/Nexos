@@ -1,0 +1,12 @@
+package com.nexos.tecnica.models;
+
+import org.junit.jupiter.api.Test;
+
+public class CommodityTest {
+
+	@Test
+	public void testCommodityStringIntegerDateStringStringDate() {
+		throw new RuntimeException("not yet implemented");
+	}
+
+}

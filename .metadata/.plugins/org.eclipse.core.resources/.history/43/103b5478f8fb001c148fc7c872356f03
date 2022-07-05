@@ -1,0 +1,14 @@
+package com.nexos.tecnica.models;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class CommodityTest {
+
+	@Test
+	public void testCommodityStringIntegerDateStringStringDate() {
+		throw new RuntimeException("not yet implemented");
+	}
+
+}

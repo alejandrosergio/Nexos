@@ -1,0 +1,9 @@
+package com.nexos.tecnica.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nexos.tecnica.models.Charges;
+
+public interface ChargesRespository extends JpaRepository<Charges, Long> {
+
+}

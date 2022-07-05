@@ -1,0 +1,77 @@
+package com.nexos.tecnica.dtos;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.PrePersist;
+
+import lombok.Data;
+
+@Data
+public class ChargesDTO implements Serializable  {
+	
+	
+	private Long ID;
+    private String Charge;
+    private String CreatedBy;
+    private Date CreationOn;
+    private String ModifiedBy;
+    private Date ModifiedOn;
+	
+    
+	@PrePersist
+	public void prePersist() {
+		this.CreationOn = new Date();
+	}
+	
+    
+	public Long getID() {
+		return ID;
+	}
+	public void setID(Long iD) {
+		ID = iD;
+	}
+	
+	
+	public String getCharge() {
+		return Charge;
+	}
+	public void setCharge(String charge) {
+		Charge = charge;
+	}
+	
+	
+	public String getCreatedBy() {
+		return CreatedBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		CreatedBy = createdBy;
+	}
+	
+	
+	public Date getCreationOn() {
+		return CreationOn;
+	}
+	public void setCreationOn(Date creationOn) {
+		CreationOn = creationOn;
+	}
+	
+	
+	public String getModifiedBy() {
+		return ModifiedBy;
+	}
+	public void setModifiedBy(String modifiedBy) {
+		ModifiedBy = modifiedBy;
+	}
+	
+	
+	public Date getModifiedOn() {
+		return ModifiedOn;
+	}
+	public void setModifiedOn(Date modifiedOn) {
+		ModifiedOn = modifiedOn;
+	}
+
+	private static final long serialVersionUID = 7822981926210596470L;
+
+}

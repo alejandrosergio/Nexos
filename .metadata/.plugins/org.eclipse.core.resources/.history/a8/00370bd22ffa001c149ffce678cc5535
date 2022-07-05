@@ -1,0 +1,23 @@
+package com.nexos.tecnica.models;
+
+
+import java.util.Date;
+
+import javax.persistence.Table;
+
+
+@Table(name = "Charges")
+public class Charges {
+	
+
+    private Long ID;
+    
+    private String Charge;
+    
+    private Date CreatedBy;
+    private Date CreationOn;
+    private Date ModifiedBy;
+    private Date ModifiedOn;
+    
+    
+}

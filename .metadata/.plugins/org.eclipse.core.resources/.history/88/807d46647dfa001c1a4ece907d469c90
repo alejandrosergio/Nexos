@@ -1,0 +1,5 @@
+package com.nexos.tecnica.dtos;
+
+public class ChargesDTO {
+
+}

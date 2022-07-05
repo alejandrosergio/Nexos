@@ -1,0 +1,66 @@
+package com.nexos.tecnica.services;
+
+import java.io.Serializable;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.nexos.tecnica.repository.IChargesRespository;
+import com.nexos.tecnica.models.Charges;
+
+@Service
+public class ChargesService {
+	
+	@Autowired
+	private IChargesRespository iChargesRespository;
+	
+	
+	public Page<Charges> getAllCharges(Integer page, Integer size, Boolean enablePagination) {
+		return iChargesRespository.findAll( enablePagination ? PageRequest.of(page, size) : Pageable.unpaged());
+	}
+	
+	public Optional<Charges> findByChargeId(Long ID){
+		return iChargesRespository.findById(ID);
+	}
+	
+	
+	public Charges saveCharges(Charges charge) {
+		
+		if( charge.getID() == null) {
+			return iChargesRespository.save(charge);
+		}
+		
+		return null;
+	}
+	
+	
+	public Charges editCharges(Charges charge) {
+		
+		if( charge.getID() != null && iChargesRespository.existsById(charge.getID())) {
+			return iChargesRespository.save(charge);
+		}
+		
+		return null;
+		
+	}
+	
+	
+	public void deleteCharges(Long ID) {
+		iChargesRespository.deleteById(ID);
+	}
+	
+	
+	public boolean existById(Long ID) {
+		return iChargesRespository.existsById(ID);
+	}
+	
+
+}
+
+
+
+

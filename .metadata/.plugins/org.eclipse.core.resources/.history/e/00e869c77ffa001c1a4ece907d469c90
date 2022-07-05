@@ -1,0 +1,17 @@
+package com.nexos.tecnica.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nexos.tecnica.models.Charges;
+
+@Repository
+public interface IChargesRespository extends JpaRepository<Charges, Long> {
+
+//	@Transactional(readOnly = true)
+//	Optional<Charges> findByChargeCharge(String Charge);
+
+//	@Transactional(readOnly = true)
+//	Optional<Charges> finByChargeCreated_by(Date date);
+	
+}

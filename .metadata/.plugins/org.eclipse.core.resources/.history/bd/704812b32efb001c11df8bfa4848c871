@@ -1,0 +1,5 @@
+package com.nexos.tecnica.config.exception;
+
+public class NotFoundException extends RuntimeException {
+
+}

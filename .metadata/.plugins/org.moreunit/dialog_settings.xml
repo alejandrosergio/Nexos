@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="NewTestCaseCreationWizardPage.USE_SETUP" value="false"/>
+	<item key="NewTestCaseCreationWizardPage.USE_TEARDOWN" value="false"/>
+	<item key="NewTestCaseCreationWizardPage.USE_SETUPCLASS" value="false"/>
+	<item key="NewTestCaseCreationWizardPage.USE_TEARDOWNCLASS" value="false"/>
+	<item key="NewTestCaseCreationWizardPage.USE_CONSTRUCTOR" value="false"/>
+	<item key="org.moreunit.wizards.NewTestCaseWizard.packageFragmentRoot.InventarioAutomotriz" value="=InventarioAutomotriz/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/"/>
+</section>

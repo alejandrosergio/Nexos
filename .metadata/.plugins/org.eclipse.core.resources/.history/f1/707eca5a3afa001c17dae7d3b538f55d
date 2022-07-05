@@ -1,0 +1,30 @@
+package com.nexos.tecnica.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.nexos.tecnica.repository.*;
+import com.nexos.tecnica.models.*;
+
+@Service
+public class ChargesService {
+	
+	@Autowired
+	private IChargesRespository iChargesRespository;
+	
+	public Charges saveCharges(Charges charge) {
+		return iChargesRespository.save(charge);
+	}
+	
+	public Page<Charges> getAllCharges(Integer page, Integer size, Boolean enablePagination) {
+		return iChargesRespository.findAll( enablePagination ? PageRequest.of(page, size) : Pageable.unpaged());
+	}
+	
+	public void deleteCharges(Long ID) {
+		iChargesRespository.deleteById(ID);
+	}
+
+}

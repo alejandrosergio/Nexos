@@ -1,0 +1,23 @@
+package com.nexos.tecnica.repository;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nexos.tecnica.models.Commodity;
+
+@Repository
+public interface ICommodityRepository extends JpaRepository<Commodity, Long> {
+	
+	Optional<List<Commodity>> findByProduct(String product);
+	
+	Optional<List<Commodity>> findByCreationOn(Date creationOn);
+	
+	boolean existsByProduct(String product);
+	
+
+	
+}

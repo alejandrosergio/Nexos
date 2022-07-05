@@ -1,0 +1,18 @@
+package com.nexos.tecnica.repository;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nexos.tecnica.models.Charges;
+
+@Repository
+public interface IChargesRepository extends JpaRepository<Charges, Long> {
+	
+	List<Charges> findByCharge(String charge);
+	
+	List<Charges> findByCreationOn(Date creationOn);
+
+}

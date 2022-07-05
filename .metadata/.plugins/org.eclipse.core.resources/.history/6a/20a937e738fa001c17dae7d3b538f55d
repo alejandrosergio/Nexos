@@ -1,0 +1,19 @@
+package com.nexos.tecnica.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nexos.tecnica.repository.*;
+import com.nexos.tecnica.models.*;
+
+@Service
+public class ChargesService {
+	
+	@Autowired
+	private IChargesRespository IChargesRespository;
+	
+	public Charges saveCharges (Charges charge) {
+		return IChargesRespository.save(charge);
+	}
+
+}

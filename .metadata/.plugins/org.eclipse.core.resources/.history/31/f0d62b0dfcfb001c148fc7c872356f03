@@ -1,0 +1,46 @@
+package com.nexos.tecnica.models;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
+
+import com.nexos.tecnica.repository.ICommodityRepository;
+
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = Replace.NONE)
+public class CommodityTest {
+	
+	@Autowired
+	private ICommodityRepository iCommodityRepository;
+
+	
+	@Test
+	@Rollback(false)
+	public void testSaveCommodity() {
+		Commodity commodity = new Commodity("Producto", 45, new Date(), "Alejandro", "Alejandro", new Date());
+		Commodity CommoditySave =iCommodityRepository.save(commodity);
+		
+		assertNotNull(CommoditySave);
+		
+	}
+	
+	
+	@Test
+	@Rollback(false)
+	public void testUpdateCommodity() {
+		Commodity commodity = new Commodity("Producto", 45, new Date(), "Alejandro", "Alejandro", new Date());
+		Commodity CommoditySave =iCommodityRepository.save(commodity);
+		
+		assertNotNull(CommoditySave);
+		
+	}
+	
+
+}

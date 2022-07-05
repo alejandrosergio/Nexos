@@ -1,0 +1,102 @@
+package com.nexos.tecnica.models;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "Users")
+public class Users implements Serializable {
+	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+    private Long ID;
+	
+	@Column(name = "Nombre", unique = true, nullable = false)
+    private String Name;
+    
+    @Column(name = "Created_by", nullable = false)
+    private String CreatedBy;
+    
+    @Column(name = "Creation_on", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date CreationOn;
+    
+    @Column(name = "Modified_by", nullable = true)
+    private String ModifiedBy;
+    
+    @Column(name = "Modified_on", nullable = true)
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date ModifiedOn;
+    
+
+	@PrePersist
+	public void prePersist() {
+		this.CreationOn = new Date();
+	}
+	
+    
+	public Long getID() {
+		return ID;
+	}
+	public void setID(Long ID) {
+		this.ID = ID;
+	}
+	
+	public String getCharge() {
+		return Charge;
+	}
+	public void setCharge(String Charge) {
+		this.Charge = Charge;
+	}
+	
+	public String getCreatedBy() {
+		return CreatedBy;
+	}
+	public void setCreatedBy(String CreatedBy) {
+		this.CreatedBy = CreatedBy;
+	}
+	
+	public Date getCreationOn() {
+		return CreationOn;
+	}
+	public void setCreationOn(Date CreationOn) {
+		this.CreationOn = CreationOn;
+	}
+	
+	public String getModifiedBy() {
+		return ModifiedBy;
+	}
+	public void setModifiedBy(String ModifiedBy) {
+		this.ModifiedBy = ModifiedBy;
+	}
+	
+	public Date getModifiedOn() {
+		return ModifiedOn;
+	}
+	public void setModifiedOn(Date ModifiedOn) {
+		this.ModifiedOn = ModifiedOn;
+	}
+
+	
+	private static final long serialVersionUID = 6775287975757635376L;
+	
+	
+}
+
+
+

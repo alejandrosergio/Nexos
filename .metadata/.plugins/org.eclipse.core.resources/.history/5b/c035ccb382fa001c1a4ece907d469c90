@@ -1,0 +1,5 @@
+package com.nexos.tecnica.repository;
+
+public interface IChargesRepository {
+
+}

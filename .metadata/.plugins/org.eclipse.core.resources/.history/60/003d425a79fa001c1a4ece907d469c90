@@ -1,0 +1,15 @@
+package com.nexos.tecnica.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.nexos.tecnica.models.Charges;
+
+@Repository
+public interface IChargesRespository extends JpaRepository<Charges, Long> {
+
+	@Query("SELECT Charge FROM Charges WHERE ID=?1")
+	public Charges findChargeById(Long idAlumno);
+	
+}

@@ -1,0 +1,10 @@
+package com.nexos.tecnica.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ChargesService {
+	
+	private IChargesRepository IChargesRepository
+
+}

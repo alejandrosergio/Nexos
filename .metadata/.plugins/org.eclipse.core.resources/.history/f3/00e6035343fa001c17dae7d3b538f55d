@@ -1,0 +1,96 @@
+package com.nexos.tecnica.models;
+
+import java.util.Date;
+
+import javax.persistence.*;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "Charges")
+public class Charges {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+    private Long ID;
+	
+    private String Charge;
+    
+    @Column(name = "Created_by")
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date CreatedBy;
+    
+    @Column(name = "Creation_on")
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date CreationOn;
+    
+    @Column(name = "Modified_by")
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date ModifiedBy;
+    
+    @Column(name = "Modified_on")
+	@Temporal(TemporalType.TIMESTAMP)
+    private Date ModifiedOn;
+    
+    
+	@PrePersist
+	public void prePersist() {
+		this.CreationOn = new Date();
+		this.ModifiedOn = new Date();
+	}
+	
+    
+	public Long getID() {
+		return ID;
+	}
+	public void setID(Long iD) {
+		ID = iD;
+	}
+	
+	public String getCharge() {
+		return Charge;
+	}
+	public void setCharge(String charge) {
+		Charge = charge;
+	}
+	
+	public Date getCreatedBy() {
+		return CreatedBy;
+	}
+	public void setCreatedBy(Date createdBy) {
+		CreatedBy = createdBy;
+	}
+	
+	public Date getCreationOn() {
+		return CreationOn;
+	}
+	public void setCreationOn(Date creationOn) {
+		CreationOn = creationOn;
+	}
+	
+	public Date getModifiedBy() {
+		return ModifiedBy;
+	}
+	public void setModifiedBy(Date modifiedBy) {
+		ModifiedBy = modifiedBy;
+	}
+	
+	public Date getModifiedOn() {
+		return ModifiedOn;
+	}
+	public void setModifiedOn(Date modifiedOn) {
+		ModifiedOn = modifiedOn;
+	}
+	
+	@Override
+	public String toString() {
+		return "Charges [ID=" + ID + ", Charge=" + Charge + ", CreatedBy=" + CreatedBy + ", CreationOn=" + CreationOn
+				+ ", ModifiedBy=" + ModifiedBy + ", ModifiedOn=" + ModifiedOn + "]";
+	}
+
+    
+    
+    
+}
